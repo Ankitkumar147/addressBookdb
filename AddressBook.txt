@@ -1,0 +1,15 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| adressbookdb       |
+| employeedb         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.05 sec)
+
+mysql> use adressbookdb
+Database changed
