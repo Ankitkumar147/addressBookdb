@@ -13,3 +13,32 @@ mysql> show databases;
 
 mysql> use adressbookdb
 Database changed
+
+mysql> create Table Address_Book (
+    -> firstName varchar(255) not null primary key,
+    -> lastName varchar(255) not null,
+    -> address varchar(255) not null,
+    -> city varchar(255) not null,
+    -> state varchar(255) not null,
+    -> zip varchar(255) not null,
+    -> phoneNumber INT not null,
+    -> email varchar(255) not null
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc Address_Book;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(255) | NO   | PRI | NULL    |       |
+| lastName    | varchar(255) | NO   |     | NULL    |       |
+| address     | varchar(255) | NO   |     | NULL    |       |
+| city        | varchar(255) | NO   |     | NULL    |       |
+| state       | varchar(255) | NO   |     | NULL    |       |
+| zip         | varchar(255) | NO   |     | NULL    |       |
+| phoneNumber | int          | NO   |     | NULL    |       |
+| email       | varchar(255) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql>
