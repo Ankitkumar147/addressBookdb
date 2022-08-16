@@ -13,3 +13,97 @@ mysql> show databases;
 
 mysql> use adressbookdb
 Database changed
+
+mysql> create Table Address_Book (
+    -> firstName varchar(255) not null primary key,
+    -> lastName varchar(255) not null,
+    -> address varchar(255) not null,
+    -> city varchar(255) not null,
+    -> state varchar(255) not null,
+    -> zip varchar(255) not null,
+    -> phoneNumber INT not null,
+    -> email varchar(255) not null
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc Address_Book;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(255) | NO   | PRI | NULL    |       |
+| lastName    | varchar(255) | NO   |     | NULL    |       |
+| address     | varchar(255) | NO   |     | NULL    |       |
+| city        | varchar(255) | NO   |     | NULL    |       |
+| state       | varchar(255) | NO   |     | NULL    |       |
+| zip         | varchar(255) | NO   |     | NULL    |       |
+| phoneNumber | int          | NO   |     | NULL    |       |
+| email       | varchar(255) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> Insert into Address_Book values ('Ankit','Kumar','Shanti Nagar','Panipat','Haryana',132103,0,'ankit@gmail.com');
+
+
+mysql> Select * From Address_Book;
++-----------+----------+--------------+---------+---------+--------+-------------+-----------------+
+| firstName | lastName | address      | city    | state   | zip    | phoneNumber | email           |
++-----------+----------+--------------+---------+---------+--------+-------------+-----------------+
+| Ankit     | Kumar    | Shanti Nagar | Panipat | Haryana | 132103 |           0 | ankit@gmail.com |
++-----------+----------+--------------+---------+---------+--------+-------------+-----------------+
+1 row in set (0.01 sec)
+
+mysql> Insert into Address_Book values ('Sachin','Kumar','Virat Nagar','Panipat','Haryana',132103,0,'sachin@gmail.com');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> Insert into Address_Book values ('Sahil','Tanwar','Virat Nagar','Sonipat','Haryana',132103,0,'sahil@gmail.com');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> Select * From Address_Book;
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+| firstName | lastName | address      | city    | state   | zip    | phoneNumber | email            |
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+| Ankit     | Kumar    | Shanti Nagar | Panipat | Haryana | 132103 |           0 | ankit@gmail.com  |
+| Sachin    | Kumar    | Virat Nagar  | Panipat | Haryana | 132103 |           0 | sachin@gmail.com |
+| Sahil     | Tanwar   | Virat Nagar  | Sonipat | Haryana | 132103 |           0 | sahil@gmail.com  |
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+3 rows in set (0.00 sec)
+
+
+mysql> UPDATE Address_Book
+    -> SET zip = 131101
+    -> Where firstName = 'Sahil';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Select * From Address_Book;
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+| firstName | lastName | address      | city    | state   | zip    | phoneNumber | email            |
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+| Ankit     | Kumar    | Shanti Nagar | Panipat | Haryana | 132103 |           0 | ankit@gmail.com  |
+| Sachin    | Kumar    | Virat Nagar  | Panipat | Haryana | 132103 |           0 | sachin@gmail.com |
+| Sahil     | Tanwar   | Virat Nagar  | Sonipat | Haryana | 131101 |           0 | sahil@gmail.com  |
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> Delete From Address_Book
+    -> where firstName = 'Sahil';
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * From Address_Book;
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+| firstName | lastName | address      | city    | state   | zip    | phoneNumber | email            |
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+| Ankit     | Kumar    | Shanti Nagar | Panipat | Haryana | 132103 |           0 | ankit@gmail.com  |
+| Sachin    | Kumar    | Virat Nagar  | Panipat | Haryana | 132103 |           0 | sachin@gmail.com |
++-----------+----------+--------------+---------+---------+--------+-------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> Select email FROM Address_Book WHERE firstName = 'Sachin';
++------------------+
+| email            |
++------------------+
+| sachin@gmail.com |
++------------------+
+1 row in set (0.04 sec)
+
+mysql>
